@@ -13,7 +13,7 @@
 
 // FirebaseUI config.
 var uiConfig = {
-    signInSuccessUrl: `https://byronthe123.github.io/random_12347/main.html`,
+    signInSuccessUrl: `https://byronthe123.github.io/users/main.html`,
     signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -21,7 +21,7 @@ var uiConfig = {
     ],
     'callbacks': {
         'signInSuccess': function(currentUser, credential, redirectUrl) {
-            window.location.assign('https://byronthe123.github.io/random_12347/main.html');
+            window.location.assign('https://byronthe123.github.io/users/main.html');
             return true;
         }
     }
@@ -33,15 +33,30 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 ui.start('#firebaseui-auth-container', uiConfig);
 
 
-// firebase.auth().onAuthStateChanged((user) => {
-//     if(!user) {
-//         if(window.location.href === 'https://byronthe123.github.io/random_12347/main.html') {
-//             alert('Please login');
-//             window.location.href = 'https://byronthe123.github.io/random_12347/index.html';
-//         }
-//     } else {
-//         $('#out_username').text(user.displayName);
-//         $('#out_user_email').text(user.email);
-//         $('#img_user_photo').attr('src', user.photoURL);
-//     }
-// });
+firebase.auth().onAuthStateChanged((user) => {
+    if(!user) {
+        // if(window.location.href === 'https://byronthe123.github.io/random_12347/main.html') {
+        //     alert('Please login');
+        //     window.location.href = 'https://byronthe123.github.io/random_12347/index.html';
+        // }
+    } else {
+
+        let username = user.displayName;
+        let email = user.email;
+
+        db.ref().push({
+            db_username: username,
+            db_email: email
+        });
+
+        
+        db.ref().on('child_added', (snapshot) => {
+            console.log(snapshot);
+        });
+
+
+        $('#out_name').text(username);
+        $('#out_email').text(email);
+
+    }
+});
