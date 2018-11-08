@@ -47,13 +47,27 @@ firebase.auth().onAuthStateChanged((user) => {
         db.ref().on('value', (snapshot) => {
             console.log(snapshot);
             // console.log(snapshot.node_.children_.root_.left.value.value_);
-            if(snapshot.node_.children_.root_.left === undefined) {
-                console.log('null');
-                db.ref().push({
-                    db_username: username,
-                    db_email: email
-                });
-            } else if(snapshot.node_.children_.root_.left.value.value_ !== email) {
+            // if(snapshot.node_.children_.root_.left === undefined) {
+            //     console.log('null');
+            //     db.ref().push({
+            //         db_username: username,
+            //         db_email: email
+            //     });
+            // } else if(snapshot.node_.children_.root_.left.value.value_ !== email) {
+            //     db.ref().push({
+            //         db_username: username,
+            //         db_email: email
+            //     });
+            // }
+
+            if(snapshot.node_.children_.root_.left !== undefined) {
+                if(snapshot.node_.children_.root_.left.value.value_ !== email) {
+                    db.ref().push({
+                        db_username: username,
+                        db_email: email
+                    });
+                }
+            } else {
                 db.ref().push({
                     db_username: username,
                     db_email: email
