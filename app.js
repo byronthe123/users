@@ -46,6 +46,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
         db.ref().on('value', (snapshot) => {
             console.log(snapshot);
+            console.log(snapshot.node_.children_.root_.left);
             // console.log(snapshot.node_.children_.root_.left.value.value_);
             // if(snapshot.node_.children_.root_.left === undefined) {
             //     console.log('null');
@@ -83,16 +84,16 @@ firebase.auth().onAuthStateChanged((user) => {
 });
 
 
-// db.ref().on('value', (snapshot) => {
-//     console.log(snapshot);
-//     if(snapshot.node_.children_.root_.left === undefined) {
-//         console.log('null');
-//     }
-//     // console.log(snapshot.node_.children_.root_.left.value.value_);
-//     // if(snapshot.node_.children_.root_.left.value.value_ !== email) {
-//     //     db.ref().push({
-//     //         db_username: username,
-//     //         db_email: email
-//     //     });
-//     // }
-// });
+db.ref().on('value', (snapshot) => {
+    console.log(snapshot);
+    if(snapshot.node_.children_.root_.left === undefined) {
+        console.log('null');
+    }
+    // console.log(snapshot.node_.children_.root_.left.value.value_);
+    // if(snapshot.node_.children_.root_.left.value.value_ !== email) {
+    //     db.ref().push({
+    //         db_username: username,
+    //         db_email: email
+    //     });
+    // }
+});
