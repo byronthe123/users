@@ -52,7 +52,7 @@ firebase.auth().onAuthStateChanged((user) => {
         
         db.ref().on('child_added', (snapshot) => {
             console.log(snapshot);
-            console.log(snapshot.node_.children_.left.value.value_);
+            console.log(snapshot.node_.children_.root_.left.value.value_);
         });
 
 
