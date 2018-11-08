@@ -49,7 +49,7 @@ firebase.auth().onAuthStateChanged((user) => {
             console.log(snapshot.node_.children_.root_.left);
             if(snapshot.node_.children_.root_.left !== undefined) {
                 // if(snapshot.node_.children_.root_.left.value.value_ !== email) {
-                if(snapshot.node_.children_.root_.value.root_.left.value.value_ !== email) {
+                if(snapshot.node_.children_.root_.value.children_.root_.left.value.value_ !== email) {
                     db.ref().push({
                         db_username: username,
                         db_email: email
