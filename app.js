@@ -62,12 +62,12 @@ firebase.auth().onAuthStateChanged((user) => {
             // }
 
             if(snapshot.node_.children_.root_.left !== undefined) {
-                if(snapshot.node_.children_.root_.left.value.value_ !== email) {
+                // if(snapshot.node_.children_.root_.left.value.value_ !== email) {
+                if(snapshot.node_.children_.root_.value.root_.left.value.value_ !== email) {
                     db.ref().push({
                         db_username: username,
                         db_email: email
                     });
-                }
             } else {
                 db.ref().push({
                     db_username: username,
@@ -86,6 +86,8 @@ firebase.auth().onAuthStateChanged((user) => {
 
 db.ref().on('value', (snapshot) => {
     console.log(snapshot);
+    console.log(snapshot.hasOwnProperty('node_.children_'));
+    console.log(snapshot.node_.children_.root_.left);
     if(snapshot.node_.children_.root_.left === undefined) {
         console.log('null');
     }
