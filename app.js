@@ -56,13 +56,15 @@ var uiConfig = {
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.GithubAuthProvider.PROVIDER_ID,
     ],
-    'callbacks': {
-        'signInSuccess': function(currentUser, credential, redirectUrl) {
-            // window.location.assign('https://byronthe123.github.io/users/main.html');
-            // authStateLogin();
-            return true;
+    callbacks: {
+        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+          // User successfully signed in.
+          authStateLogin();
+          console.log("sign in success");
+          // don't redirect automatically
+          return false;
         }
-    }
+    },
 };
 
 // Initialize the FirebaseUI Widget using Firebase.
