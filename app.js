@@ -34,6 +34,7 @@ ui.start('#firebaseui-auth-container', uiConfig);
 
 
 firebase.auth().onAuthStateChanged((user) => {
+    console.log(db.ref());
     if(!user) {
         // if(window.location.href === 'https://byronthe123.github.io/random_12347/main.html') {
         //     alert('Please login');
