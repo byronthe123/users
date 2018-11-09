@@ -15,8 +15,8 @@
 const authStateLogin = () => {
     console.log('logged in');
     $('#log_status').text('logged in');
-
     console.log(db.ref());
+    window.location.href = `https://byronthe123.github.io/users/main.html`;
 }
 
 // FirebaseUI config.
