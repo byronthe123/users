@@ -12,6 +12,10 @@
   const db = firebase.database();
 
 
+const redirect = () => {
+    window.location.href = `https://byronthe123.github.io/users/main.html`;
+}
+
 const authStateLogin = () => {
     window.location.href = `https://byronthe123.github.io/users/main.html`;
     console.log('logged in');
@@ -30,8 +34,7 @@ var uiConfig = {
     callbacks: {
         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
           // User successfully signed in.
-        //   window.location.href = `https://byronthe123.github.io/users/main.html`;
-          authStateLogin();
+          redirect().then(authStateLogin());
 
           // don't redirect automatically
           return false;
