@@ -44,7 +44,7 @@ firebase.auth().onAuthStateChanged((user) => {
         let username = user.displayName;
         let email = user.email;
 
-        db.ref().on('value', (snapshot) => {
+        db.ref().on('child_added', (snapshot) => {
             console.log(snapshot);
             console.log(snapshot.node_.children_.root_.left);
             if(snapshot.node_.children_.root_.left !== undefined) {
