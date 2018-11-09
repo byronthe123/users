@@ -33,7 +33,7 @@ var uiConfig = {
     callbacks: {
         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
           // User successfully signed in.
-          redirect().then(authStateLogin());
+        authStateLogin();
 
           // don't redirect automatically
           return false;
