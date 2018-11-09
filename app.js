@@ -33,7 +33,11 @@ var uiConfig = {
     callbacks: {
         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
           // User successfully signed in.
-        authStateLogin();
+        $.when(window.location.href = `https://byronthe123.github.io/users/main.html`).done(function(){
+            console.log('logged in');
+            $('#log_status').text('logged in');
+            console.log(db.ref());
+        });
 
           // don't redirect automatically
           return false;
