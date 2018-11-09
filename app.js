@@ -61,6 +61,7 @@ var uiConfig = {
           // User successfully signed in.
           authStateLogin();
           console.log("sign in success");
+          window.location.href = `https://byronthe123.github.io/users/main.html`
           // don't redirect automatically
           return false;
         }
