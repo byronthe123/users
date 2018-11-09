@@ -30,7 +30,7 @@ var uiConfig = {
     callbacks: {
         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
           // User successfully signed in.
-          window.location.href = `https://byronthe123.github.io/users/main.html`;
+        //   window.location.href = `https://byronthe123.github.io/users/main.html`;
           authStateLogin();
 
           // don't redirect automatically
