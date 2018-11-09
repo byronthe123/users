@@ -39,6 +39,7 @@ firebase.auth().onAuthStateChanged((user) => {
         //     alert('Please login');
         //     window.location.href = 'https://byronthe123.github.io/random_12347/index.html';
         // }
+        console.log('!user');
     } else {
 
         let username = user.displayName;
