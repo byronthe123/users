@@ -35,7 +35,7 @@ ui.start('#firebaseui-auth-container', uiConfig);
 
 const authStateLogin = () => {
     console.log('login');
-    firebase.auth().onAuthStateChanged((user) => {
+    /*firebase.auth().onAuthStateChanged((user) => {
         console.log(db.ref());
         if(!user) {
             // if(window.location.href === 'https://byronthe123.github.io/random_12347/main.html') {
@@ -58,12 +58,7 @@ const authStateLogin = () => {
                             db_username: username,
                             db_email: email
                         });
-                    } /*else {
-                        db.ref().push({
-                            db_username: username,
-                            db_email: email
-                        });
-                    }*/
+                    }
                 };
 
             $('#out_name').text(username);
@@ -71,7 +66,7 @@ const authStateLogin = () => {
 
             });
         }
-    });
+    });*/
 }
 
 
