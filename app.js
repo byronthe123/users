@@ -58,8 +58,8 @@ var uiConfig = {
     ],
     'callbacks': {
         'signInSuccess': function(currentUser, credential, redirectUrl) {
-            window.location.assign('https://byronthe123.github.io/users/main.html');
-            authStateLogin();
+            // window.location.assign('https://byronthe123.github.io/users/main.html');
+            // authStateLogin();
             return true;
         }
     }
