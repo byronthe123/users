@@ -11,6 +11,14 @@
 
   const db = firebase.database();
 
+
+const authStateLogin = () => {
+    console.log('logged in');
+    $('#log_status').text('logged in');
+
+    console.log(db.ref());
+}
+
 // FirebaseUI config.
 var uiConfig = {
     signInSuccessUrl: `https://byronthe123.github.io/users/main.html`,
@@ -29,13 +37,6 @@ var uiConfig = {
         }
     },
 };
-
-const authStateLogin = () => {
-    console.log('logged in');
-    $('#log_status').text('logged in');
-
-    console.log(db.ref());
-}
 
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
