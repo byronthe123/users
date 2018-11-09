@@ -22,6 +22,7 @@ var uiConfig = {
     'callbacks': {
         'signInSuccess': function(currentUser, credential, redirectUrl) {
             window.location.assign('https://byronthe123.github.io/users/main.html');
+            authStateLogin();
             return true;
         }
     }
@@ -32,44 +33,46 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig);
 
+const authStateLogin = () => {
+    console.log('login');
+    firebase.auth().onAuthStateChanged((user) => {
+        console.log(db.ref());
+        if(!user) {
+            // if(window.location.href === 'https://byronthe123.github.io/random_12347/main.html') {
+            //     alert('Please login');
+            //     window.location.href = 'https://byronthe123.github.io/random_12347/index.html';
+            // }
+            console.log('!user');
+        } else {
 
-firebase.auth().onAuthStateChanged((user) => {
-    console.log(db.ref());
-    if(!user) {
-        // if(window.location.href === 'https://byronthe123.github.io/random_12347/main.html') {
-        //     alert('Please login');
-        //     window.location.href = 'https://byronthe123.github.io/random_12347/index.html';
-        // }
-        console.log('!user');
-    } else {
+            let username = user.displayName;
+            let email = user.email;
 
-        let username = user.displayName;
-        let email = user.email;
+            db.ref().on('child_added', (snapshot) => {
+                console.log(snapshot);
+                console.log(snapshot.node_.children_.root_.left);
+                if(snapshot.node_.children_.root_.left !== undefined) {
+                    // if(snapshot.node_.children_.root_.left.value.value_ !== email) {
+                    if(snapshot.node_.children_.root_.value.children_.root_.left.value.value_ !== email) {
+                        db.ref().push({
+                            db_username: username,
+                            db_email: email
+                        });
+                    } /*else {
+                        db.ref().push({
+                            db_username: username,
+                            db_email: email
+                        });
+                    }*/
+                };
 
-        db.ref().on('child_added', (snapshot) => {
-            console.log(snapshot);
-            console.log(snapshot.node_.children_.root_.left);
-            if(snapshot.node_.children_.root_.left !== undefined) {
-                // if(snapshot.node_.children_.root_.left.value.value_ !== email) {
-                if(snapshot.node_.children_.root_.value.children_.root_.left.value.value_ !== email) {
-                    db.ref().push({
-                        db_username: username,
-                        db_email: email
-                    });
-                } /*else {
-                    db.ref().push({
-                        db_username: username,
-                        db_email: email
-                    });
-                }*/
-            };
+            $('#out_name').text(username);
+            $('#out_email').text(email);
 
-        $('#out_name').text(username);
-        $('#out_email').text(email);
-
-        });
-    }
-});
+            });
+        }
+    });
+}
 
 
 // db.ref().on('value', (snapshot) => {
