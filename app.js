@@ -34,9 +34,9 @@ var uiConfig = {
         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
           // User successfully signed in.
         window.location.href = `https://byronthe123.github.io/users/main.html`;
-        window.onload = function(){
+        if(window.location.href === 'https://byronthe123.github.io/users/main.html') {
             authStateLogin();
-        };
+        }
           // don't redirect automatically
           return false;
         }
