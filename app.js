@@ -35,6 +35,7 @@ ui.start('#firebaseui-auth-container', uiConfig);
 
 const authStateLogin = () => {
     console.log('login');
+    $('#log_status').text('logged in');
     /*firebase.auth().onAuthStateChanged((user) => {
         console.log(db.ref());
         if(!user) {
