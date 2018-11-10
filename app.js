@@ -1,3 +1,5 @@
+let loggingIn = false;  
+  
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyCTnyV6vlg2vakA3hGE0YNr4vIh5aWoWhA",
@@ -34,13 +36,16 @@ var uiConfig = {
         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
           // User successfully signed in.
         // window.location.href = `https://byronthe123.github.io/users/main.html`;
-        console.log('working');
-        $('#log_status').text('logged in');
+            loggingIn = true;
           // don't redirect automatically
           return true;
         }
     },
 };
+
+if(window.location.href === 'https://byronthe123.github.io/users/main.html' && loggingIn) {
+    authStateLogin();
+}
 
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
