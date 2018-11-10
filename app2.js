@@ -60,6 +60,10 @@ firebase.auth().onAuthStateChanged((user) => {
     }
 });
 
+$('#btn_check').on('click', function(){
+    console.log(loggingIn);
+});
+
 // if(window.location.href === 'https://byronthe123.github.io/users/main.html' && loggingIn) {
 //     window.onload = authStateLogin();
 // }
