@@ -40,7 +40,8 @@ var uiConfig = {
             // loggingIn = true;
           // don't redirect automatically
           return false;
-        }
+        },
+        loggingIn = true
     },
 };
 

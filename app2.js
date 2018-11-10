@@ -22,6 +22,7 @@ const redirect = () => {
 const authStateLogin = () => {
     console.log('logged in');
     $('#log_status').text('logged in');
+    loggingIn = true;
     console.log(db.ref());
 }
 
@@ -38,12 +39,11 @@ var uiConfig = {
           // User successfully signed in.
         //   authStateLogin();
         // window.location.href = `https://byronthe123.github.io/users/main.html`;
-        loggingIn = true;
-
             // loggingIn = true;
           // don't redirect automatically
+          loggingIn = true
           return true;
-        }
+        },
     },
 };
 
