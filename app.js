@@ -44,7 +44,7 @@ var uiConfig = {
 };
 
 if(window.location.href === 'https://byronthe123.github.io/users/main.html' && loggingIn) {
-    authStateLogin();
+    window.onload = authStateLogin();
 }
 
 // Initialize the FirebaseUI Widget using Firebase.
