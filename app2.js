@@ -1,4 +1,4 @@
-console.log('5:25');
+console.log('5:28');
 
 let loggingIn = false; 
 let tryLoggingIn = false; 
@@ -30,55 +30,55 @@ const authStateLogin = () => {
 }
 
 // FirebaseUI config.
-// var uiConfig = {
-//     signInSuccessUrl: `https://byronthe123.github.io/users/main.html`,
-//     signInOptions: [
-//         // Leave the lines as is for the providers you want to offer your users.
-//         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-//         firebase.auth.GithubAuthProvider.PROVIDER_ID,
-//     ],
-//     callbacks: {
-//         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-//           // User successfully signed in.
-//         //   authStateLogin();
-//         // window.location.href = `https://byronthe123.github.io/users/main.html`;
-//             // loggingIn = true;
-//           // don't redirect automatically
-//         //   loggingIn = true
-//           return true;
-//         }
-//     }
-// };
+var uiConfig = {
+    // signInSuccessUrl: `https://byronthe123.github.io/users/main.html`,
+    // signInOptions: [
+    //     // Leave the lines as is for the providers you want to offer your users.
+    //     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    //     firebase.auth.GithubAuthProvider.PROVIDER_ID,
+    // ],
+    // callbacks: {
+    //     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+    //       // User successfully signed in.
+    //     //   authStateLogin();
+    //     // window.location.href = `https://byronthe123.github.io/users/main.html`;
+    //         // loggingIn = true;
+    //       // don't redirect automatically
+    //     //   loggingIn = true
+    //       return true;
+    //     }
+    // }
+};
 
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig);
 
-// firebase.auth().onAuthStateChanged((user) => {
-//     if(!user) {
-//         if(window.location.href === 'https://byronthe123.github.io/users/main.html') {
-//             alert(`Please login to continue.`);
-//             window.location.href = 'https://byronthe123.github.io/users/index.html';
-//         }
-//     } else {
-//         console.log(tryLoggingIn);
-//         // alert('logged in');
-//         $('#log_status').text('logged in');
-//         console.log(db.ref());
-//         if(tryLoggingIn) {
-//             /*if(record does not exist in database) {}*/
-//             let username = user.displayName;
-//             let email = user.email;
+firebase.auth().onAuthStateChanged((user) => {
+    if(!user) {
+        if(window.location.href === 'https://byronthe123.github.io/users/main.html') {
+            alert(`Please login to continue.`);
+            window.location.href = 'https://byronthe123.github.io/users/index.html';
+        }
+    } else {
+        console.log(tryLoggingIn);
+        // alert('logged in');
+        $('#log_status').text('logged in');
+        console.log(db.ref());
+        if(tryLoggingIn) {
+            /*if(record does not exist in database) {}*/
+            let username = user.displayName;
+            let email = user.email;
 
-//             db.ref().push({
-//                 db_username: username,
-//                 db_email: email
-//             });
-//         }
-//     }
-//     tryLoggingIn = false;
-// });
+            db.ref().push({
+                db_username: username,
+                db_email: email
+            });
+        }
+    }
+    tryLoggingIn = false;
+});
 
 $('.firebaseui-list-item').on('click', 'button', function(){
     tryLoggingIn = true;
