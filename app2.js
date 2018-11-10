@@ -45,8 +45,8 @@ var uiConfig = {
           // don't redirect automatically
         //   loggingIn = true
           return true;
-        },
-    },
+        }
+    }
 };
 
 // Initialize the FirebaseUI Widget using Firebase.
