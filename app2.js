@@ -65,29 +65,18 @@ firebase.auth().onAuthStateChanged((user) => {
         console.log(tryLoggingIn);
         // alert('logged in');
         $('#log_status').text('logged in');
-        console.log(db.ref());
-        if(tryLoggingIn) {
-            /*if(record does not exist in database) {}*/
-            let username = user.displayName;
-            let email = user.email;
+        /*if(record does not exist in database) {}*/
+        let username = user.displayName;
+        let email = user.email;
 
-            db.ref().push({
-                db_username: username,
-                db_email: email
-            });
-        }
+        db.ref().push({
+            db_username: username,
+            db_email: email
+        });
     }
     tryLoggingIn = false;
 });
 
-document.addEventListener('click', (e) => {
-    alert(e.id);
-    alert(e.className);
-})
-
-$('#btn_check').on('click', function(){
-    console.log(loggingIn);
-});
 
 // if(window.location.href === 'https://byronthe123.github.io/users/main.html' && loggingIn) {
 //     window.onload = authStateLogin();
