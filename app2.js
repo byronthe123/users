@@ -31,23 +31,23 @@ const authStateLogin = () => {
 
 // FirebaseUI config.
 var uiConfig = {
-    // signInSuccessUrl: `https://byronthe123.github.io/users/main.html`,
+    signInSuccessUrl: `https://byronthe123.github.io/users/main.html`,
     signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.GithubAuthProvider.PROVIDER_ID,
     ],
-    // callbacks: {
-    //     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-    //       // User successfully signed in.
-    //     //   authStateLogin();
-    //     // window.location.href = `https://byronthe123.github.io/users/main.html`;
-    //         // loggingIn = true;
-    //       // don't redirect automatically
-    //     //   loggingIn = true
-    //       return true;
-    //     }
-    // }
+    callbacks: {
+        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+          // User successfully signed in.
+        //   authStateLogin();
+        // window.location.href = `https://byronthe123.github.io/users/main.html`;
+            // loggingIn = true;
+          // don't redirect automatically
+        //   loggingIn = true
+          return true;
+        }
+    }
 };
 
 // Initialize the FirebaseUI Widget using Firebase.
@@ -81,8 +81,8 @@ firebase.auth().onAuthStateChanged((user) => {
 });
 
 document.addEventListener('click', (e) => {
-    console.log(e.id);
-    console.log(e.className);
+    alert(e.id);
+    alert(e.className);
 })
 
 $('#btn_check').on('click', function(){
