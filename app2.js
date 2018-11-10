@@ -1,4 +1,4 @@
-console.log('4:50');
+console.log('4:53');
 
 let loggingIn = false;  
 console.log(loggingIn);
@@ -46,7 +46,6 @@ var uiConfig = {
         //   loggingIn = true
           return true;
         },
-        loggingIn = true
     },
 };
 
@@ -65,6 +64,7 @@ firebase.auth().onAuthStateChanged((user) => {
         console.log(loggingIn);
         // alert('logged in');
         $('#log_status').text('logged in');
+        console.log(db.ref());
     }
 });
 
