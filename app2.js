@@ -40,6 +40,11 @@ var uiConfig = {
     }
 };
 
+// Initialize the FirebaseUI Widget using Firebase.
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+// The start method will wait until the DOM is loaded.
+ui.start('#firebaseui-auth-container', uiConfig);
+
 firebase.auth().onAuthStateChanged((user) => {
     if(!user) {
         if(window.location.href === 'https://byronthe123.github.io/users/main.html') {
@@ -56,10 +61,7 @@ firebase.auth().onAuthStateChanged((user) => {
 //     window.onload = authStateLogin();
 // }
 
-// Initialize the FirebaseUI Widget using Firebase.
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
-// The start method will wait until the DOM is loaded.
-ui.start('#firebaseui-auth-container', uiConfig);
+
 
 
 
