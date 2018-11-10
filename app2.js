@@ -32,11 +32,11 @@ const authStateLogin = () => {
 // FirebaseUI config.
 var uiConfig = {
     // signInSuccessUrl: `https://byronthe123.github.io/users/main.html`,
-    // signInOptions: [
-    //     // Leave the lines as is for the providers you want to offer your users.
-    //     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    //     firebase.auth.GithubAuthProvider.PROVIDER_ID,
-    // ],
+    signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.GithubAuthProvider.PROVIDER_ID,
+    ],
     // callbacks: {
     //     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
     //       // User successfully signed in.
