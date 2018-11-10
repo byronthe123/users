@@ -35,6 +35,7 @@ var uiConfig = {
     callbacks: {
         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
           // User successfully signed in.
+          authStateLogin();
         // window.location.href = `https://byronthe123.github.io/users/main.html`;
             loggingIn = true;
           // don't redirect automatically
@@ -43,9 +44,9 @@ var uiConfig = {
     },
 };
 
-if(window.location.href === 'https://byronthe123.github.io/users/main.html' && loggingIn) {
-    window.onload = authStateLogin();
-}
+// if(window.location.href === 'https://byronthe123.github.io/users/main.html' && loggingIn) {
+//     window.onload = authStateLogin();
+// }
 
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
