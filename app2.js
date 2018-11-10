@@ -1,3 +1,5 @@
+console.log('4:50');
+
 let loggingIn = false;  
 console.log(loggingIn);
   
@@ -41,9 +43,10 @@ var uiConfig = {
         // window.location.href = `https://byronthe123.github.io/users/main.html`;
             // loggingIn = true;
           // don't redirect automatically
-          loggingIn = true
+        //   loggingIn = true
           return true;
         },
+        loggingIn = true
     },
 };
 
