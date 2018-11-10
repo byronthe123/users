@@ -36,7 +36,9 @@ var uiConfig = {
         window.location.href = `https://byronthe123.github.io/users/main.html`;
         if(window.location.href === 'https://byronthe123.github.io/users/main.html') {
             $(document).ready(function(){
-                authStateLogin();
+                setTimeout(function(){
+                    authStateLogin();
+                }, 2000);
             });
         }
           // don't redirect automatically
