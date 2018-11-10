@@ -43,9 +43,7 @@ var uiConfig = {
 firebase.auth().onAuthStateChanged((user) => {
     if(!user) {
         if(window.location.href === 'https://byronthe123.github.io/users/main.html') {
-            if(!signingOut) {
-                alert(`Please login to continue.`);
-            }
+            alert(`Please login to continue.`);
             window.location.href = 'https://byronthe123.github.io/users/index.html';
         }
     } else {
