@@ -52,7 +52,7 @@ firebase.auth().onAuthStateChanged((user) => {
             window.location.href = 'https://byronthe123.github.io/users/index.html';
         }
     } else {
-        alert('working');
+        alert('logged in');
         $('#log_status').text('logged in');
     }
 });
