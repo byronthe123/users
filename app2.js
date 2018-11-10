@@ -73,11 +73,17 @@ firebase.auth().onAuthStateChanged((user) => {
             db_username: username,
             db_email: email
         });
+
+        loopFirebase();
     }
     tryLoggingIn = false;
 });
 
-
+const loopFirebase = () => {
+    db.ref().on('value', (snapshot) => {
+        console.log(snapshot);
+    })
+}
 // if(window.location.href === 'https://byronthe123.github.io/users/main.html' && loggingIn) {
 //     window.onload = authStateLogin();
 // }
