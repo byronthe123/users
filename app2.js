@@ -1,4 +1,4 @@
-console.log('5:22);
+console.log('5:22');
 
 let loggingIn = false; 
 let tryLoggingIn = false; 
