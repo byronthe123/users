@@ -1,4 +1,5 @@
 let loggingIn = false;  
+console.log(loggingIn);
   
   // Initialize Firebase
   var config = {
@@ -35,6 +36,7 @@ var uiConfig = {
     'callbacks': {
         'signInSuccess': function(currentUser, credential, redirectUrl) {
             window.location.assign('https://byronthe123.github.io/users/main.html');
+            loggingIn = true;
             return true;
         }
     }
@@ -52,7 +54,8 @@ firebase.auth().onAuthStateChanged((user) => {
             window.location.href = 'https://byronthe123.github.io/users/index.html';
         }
     } else {
-        alert('logged in');
+        console.log(loggingIn);
+        // alert('logged in');
         $('#log_status').text('logged in');
     }
 });
