@@ -1,4 +1,4 @@
-console.log('5:12');
+console.log('5:16');
 
 let loggingIn = false; 
 let tryLoggingIn = false; 
@@ -68,9 +68,12 @@ firebase.auth().onAuthStateChanged((user) => {
         console.log(db.ref());
         if(tryLoggingIn) {
             /*if(record does not exist in database) {}*/
+            let username = user.displayName;
+            let email = user.email;
+
             db.ref().push({
-                db_username: user.username,
-                db_email: user.email
+                db_username: username,
+                db_email: email
             });
         }
     }
