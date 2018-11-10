@@ -1,4 +1,4 @@
-console.log('5:49');
+console.log('5:56');
 
 let loggingIn = false; 
 let tryLoggingIn = false; 
@@ -80,10 +80,10 @@ firebase.auth().onAuthStateChanged((user) => {
     tryLoggingIn = false;
 });
 
-$(document).on('click', 'firebaseui-idp-button mdl-button mdl-js-button mdl-button--raised firebaseui-idp-google firebaseui-id-idp-button', function(){
-    alert($(this));
-    tryLoggingIn = true;
-});
+document.addEventListener('click', (e) => {
+    console.log(e.id);
+    console.log(e.className);
+})
 
 $('#btn_check').on('click', function(){
     console.log(loggingIn);
