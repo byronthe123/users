@@ -36,10 +36,10 @@ var uiConfig = {
         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
           // User successfully signed in.
           authStateLogin();
-        // window.location.href = `https://byronthe123.github.io/users/main.html`;
-            loggingIn = true;
+        window.location.href = `https://byronthe123.github.io/users/main.html`;
+            // loggingIn = true;
           // don't redirect automatically
-          return true;
+          return false;
         }
     },
 };
