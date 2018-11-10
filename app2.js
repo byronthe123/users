@@ -1,6 +1,7 @@
 console.log('4:53');
 
-let loggingIn = false;  
+let loggingIn = false; 
+let tryLoggingIn = false; 
 console.log(loggingIn);
   
   // Initialize Firebase
@@ -61,11 +62,23 @@ firebase.auth().onAuthStateChanged((user) => {
             window.location.href = 'https://byronthe123.github.io/users/index.html';
         }
     } else {
-        console.log(loggingIn);
+        console.log(tryLoggingIn);
         // alert('logged in');
         $('#log_status').text('logged in');
         console.log(db.ref());
+        if(tryLoggingIn) {
+            /*if(record does not exist in database) {}*/
+            db.ref().push({
+                db_username: user.username,
+                db_email: email
+            });
+        }
     }
+    tryLoggingIn = false;
+});
+
+$('.firebaseui-idp-list').on('click', function(){
+    tryLoggingIn = true;
 });
 
 $('#btn_check').on('click', function(){
